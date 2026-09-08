@@ -1,151 +1,138 @@
-<p align="center">
-  <a href="https://swe-agent.com/latest/">
-    <img src="assets/swe-agent-banner.png" alt="swe-agent.com" style="height: 7em" />
-  </a>
-</p>
+# PatchSmith
 
-# PatchSmith — Autonomous Software Engineering Agent (SWE-agent)
+**Autonomous Code Repair & Software Engineering Research Platform**
 
-> A presentation-refreshed PatchSmith distribution. The implementation, CLI behavior, and research workflows are unchanged.
+PatchSmith combines repository-aware retrieval, explicit repair planning, multi-candidate patch generation, execution-based verification, and failure memory to repair bugs at the repository level.
 
-<p align="center">
-<a href="https://swe-agent.com/latest/"><img src="https://img.shields.io/badge/Docs-green?style=for-the-badge&logo=materialformkdocs&logoColor=white" alt="Docs"></a>
-<a href="https://swe-bench.slack.com"><img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white" alt="Slack"></a>
-<a href="https://arxiv.org/abs/2405.15793"><img src="https://img.shields.io/badge/arxiv-2405.15793-red?style=for-the-badge&logo=arxiv&logoColor=white&labelColor=black" alt="arxiv 2405.15793"></a>
-</p>
+> **Research question:** Can repository-aware planning, evidence-grounded retrieval, candidate patch generation, and execution-based verification make autonomous software-engineering agents more reliable than simple tool-using LLM loops?
 
-<p align="center">
-  <a href="https://github.com/SWE-agent/mini-swe-agent/">
-    <img src="assets/warning.png" alt="mini-swe-agent.com" style="height: 7em" />
-  </a>
-</p>
+---
 
-> [!warning]
-> Most of our current development effort is on [mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent/),
-> which has superseded SWE-agent. It matches the performance performance of SWE-agent, while being
-> much simpler.
-> See the [FAQ](https://mini-swe-agent.com/latest/faq/) for more details about the differences.
-> Our general recommendation is to use mini-SWE-agent instead of SWE-agent going forward.
+## Architecture
 
-
-SWE-agent enables your language model of choice (e.g. GPT-4o or Claude Sonnet 4) to autonomously use tools to
-[fix issues in real GitHub repositories](https://swe-agent.com/latest/usage/hello_world),
-[find cybersecurity vulnerabilities](https://enigma-agent.com/), or
-[perform any custom task](https://swe-agent.com/latest/usage/coding_challenges).
-
-* ✅ **State of the art** on SWE-bench among open-source projects
-* ✅ **Free-flowing & generalizable**: Leaves maximal agency to the LM
-* ✅ **Configurable & fully documented**: Governed by a single `yaml` file
-* ✅ **Made for research**: Simple & hackable by design
-
-This distribution preserves the original SWE-agent implementation and research documentation.
-
-## 📣 News
-
-* July 24: [Mini-SWE-Agent](https://github.com/SWE-agent/mini-SWE-agent) achieves 65% on SWE-bench verified in 100 lines of python!
-* May 2: [SWE-agent-LM-32b](https://github.com/SWE-bench/SWE-smith) achieves open-weights SOTA on SWE-bench
-* Feb 28: [SWE-agent 1.0 + Claude 3.7 is SoTA on SWE-Bench full](https://x.com/KLieret/status/1895487966409298067)
-* Feb 25: [SWE-agent 1.0 + Claude 3.7 is SoTA on SWE-bench verified](https://x.com/KLieret/status/1894408819670733158)
-* Feb 13: [Releasing SWE-agent 1.0: SoTA on SWE-bench light & tons of new features](https://x.com/KLieret/status/1890048205448220849)
-* Dec 7: [An interview with the SWE-agent & SWE-bench team](https://www.youtube.com/watch?v=fcr8WzeEXyk)
-
-## 🚀 Get started!
-
-👉 Try SWE-agent in your browser: [![Open in GitHub Codespaces](https://img.shields.io/badge/Open_in_GitHub_Codespaces-gray?logo=github)](https://codespaces.new/SWE-agent/SWE-agent) ([more information](https://swe-agent.com/latest/installation/codespaces/))
-
-Read our [documentation][docs] to learn more:
-
-* [Installation](https://swe-agent.com/latest/installation/source/)
-* [Hello world from the command line](https://swe-agent.com/latest/usage/hello_world/)
-* [Benchmarking on SWE-bench](https://swe-agent.com/latest/usage/batch_mode/)
-* [Frequently Asked Questions](https://swe-agent.com/latest/faq/)
-
-[docs]: https://swe-agent.com
-
-## SWE-agent for offensive cybersecurity (EnIGMA) <a name="enigma"></a>
-
-<img src="https://github.com/user-attachments/assets/84599168-11a7-4776-8a49-33dbf0758bb2" height="80px"></img>
-
-[SWE-agent: EnIGMA][enigma] is a mode for solving offensive cybersecurity (capture the flag) challenges.
-EnIGMA achieves state-of-the-art results on multiple cybersecurity benchmarks (see [leaderboard](https://enigma-agent.com/#results)).
-Please use [SWE-agent 0.7](https://github.com/AKIL3333/patchsmith/tree/v0.7) while we update EnIGMA for 1.0.
-
-[enigma]: https://enigma-agent.com
-[SWE-bench]: https://github.com/SWE-bench/SWE-bench
-[nyu-ctf]: https://arxiv.org/abs/2406.05590
-
-In addition, you might be interested in our other projects:
-
-
-<div align="center">
-  <a href="https://github.com/SWE-agent/mini-SWE-agent"><img src="docs/assets/mini_logo_text_below.svg" alt="Mini-SWE-Agent" height="120px"></a>
-   &nbsp;&nbsp;
-  <a href="https://github.com/SWE-agent/SWE-ReX"><img src="docs/assets/swerex_logo_text_below.svg" alt="SWE-ReX" height="120px"></a>
-   &nbsp;&nbsp;
-  <a href="https://github.com/SWE-bench/SWE-bench"><img src="docs/assets/swebench_logo_text_below.svg" alt="SWE-bench" height="120px"></a>
-  &nbsp;&nbsp;
-  <!-- <a href="https://github.com/AKIL3333/patchsmith"><img src="docs/assets/sweagent_logo_text_below.svg" alt="SWE-agent" height="120px"></a> -->
-  <a href="https://github.com/SWE-bench/SWE-smith"><img src="docs/assets/swesmith_logo_text_below.svg" alt="SWE-smith" height="120px"></a>
-  &nbsp;&nbsp;
-  <a href="https://github.com/SWE-bench/sb-cli"><img src="docs/assets/sbcli_logo_text_below.svg" alt="sb-cli" height="120px"></a>
-</div>
-
-## Contributions <a name="contributions"></a>
-
-If you'd like to contribute to the codebase, we welcome [issues](https://github.com/AKIL3333/patchsmith/issues) and [pull requests](https://github.com/AKIL3333/patchsmith/pulls)! For larger code changes, we always encourage discussion in issues first.
-
-## Citation & contact <a name="citation"></a>
-
-SWE-agent is an academic project started at Princeton University by John Yang*, Carlos E. Jimenez*, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan, and Ofir Press.
-If you found this work helpful, please consider citing it using the following:
-
-<details>
-<summary> SWE-agent citation</summary>
-
-```bibtex
-@inproceedings{yang2024sweagent,
-  title={{SWE}-agent: Agent-Computer Interfaces Enable Automated Software Engineering},
-  author={John Yang and Carlos E Jimenez and Alexander Wettig and Kilian Lieret and Shunyu Yao and Karthik R Narasimhan and Ofir Press},
-  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-  year={2024},
-  url={https://arxiv.org/abs/2405.15793}
-}
 ```
-</details>
-
-If you used the summarizer, interactive commands or the offensive cybersecurity capabilities in SWE-agent, please also consider citing:
-
-<details>
-<summary>EnIGMA citation</summary>
-
-```bibtex
-@misc{abramovich2024enigmaenhancedinteractivegenerative,
-      title={EnIGMA: Enhanced Interactive Generative Model Agent for CTF Challenges},
-      author={Talor Abramovich and Meet Udeshi and Minghao Shao and Kilian Lieret and Haoran Xi and Kimberly Milner and Sofija Jancheska and John Yang and Carlos E. Jimenez and Farshad Khorrami and Prashanth Krishnamurthy and Brendan Dolan-Gavitt and Muhammad Shafique and Karthik Narasimhan and Ramesh Karri and Ofir Press},
-      year={2024},
-      eprint={2409.16165},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2409.16165},
-}
+                     GitHub Issue
+                          |
+                          v
+                Task Understanding
+                          |
+                          v
+             Repository Analyzer
+            /        |         \
+         Files    Symbols     Tests
+            \        |         /
+                     v
+             Hybrid Retriever
+          (lexical + semantic + symbol)
+                     |
+                     v
+                  Planner
+                     |
+               Repair Plan
+                     |
+       .-------------|-------------.
+       v             v             v
+   Candidate A   Candidate B   Candidate C
+   (minimal)    (defensive)   (refactor)
+       |             |             |
+       '-------------|-------------'
+                     v
+              Patch Verifier
+        (tests + lint + regression risk)
+                     |
+            .--------+--------.
+            v                 v
+          FAIL              PASS
+            |                 v
+            v            Critic Agent
+         Memory              |
+            |         .------+------.
+            v         v             v
+         Planner    Reject        Accept
+                      |             |
+                      v             v
+                   Planner      Final Patch
 ```
-</details>
 
+---
 
-## Maintainer
+## Key Components
 
-PatchSmith is maintained by **AKIL3333**. Upstream attribution is retained in the citation and license sections.
+| Module | Purpose |
+|--------|---------|
+| `patchsmith/repository/` | AST-based indexer: files, classes, functions, call graphs, git history |
+| `patchsmith/retrieval/` | Hybrid BM25 + embedding + symbol retrieval with re-ranking |
+| `patchsmith/agent/planner.py` | Produces structured `RepairPlan` (hypothesis, target files, steps) |
+| `patchsmith/patching/` | Generates 3 candidates per plan: minimal / defensive / refactor |
+| `patchsmith/verification/` | Scores patches: test rate, lint, type errors, regression risk |
+| `patchsmith/agent/critic.py` | LLM review: does this actually fix the issue? |
+| `patchsmith/memory/` | Persists failures/successes; feeds past failures back to the planner |
 
-## 🪪 License <a name="license"></a>
-MIT. Check `LICENSE`.
+---
 
+## Quick Start
 
-<div align="center">
+```bash
+pip install -e .
+export ANTHROPIC_API_KEY=sk-ant-...
 
-[![Pytest](https://github.com/AKIL3333/patchsmith/actions/workflows/pytest.yaml/badge.svg)](https://github.com/AKIL3333/patchsmith/actions/workflows/pytest.yaml)
-[![build-docs](https://github.com/AKIL3333/patchsmith/actions/workflows/build-docs.yaml/badge.svg)](https://github.com/AKIL3333/patchsmith/actions/workflows/build-docs.yaml)
-[![codecov](https://codecov.io/gh/SWE-agent/SWE-agent/graph/badge.svg?token=18XAVDK365)](https://codecov.io/gh/SWE-agent/SWE-agent)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/SWE-agent/SWE-agent/main.svg)](https://results.pre-commit.ci/latest/github/SWE-agent/SWE-agent/main)
-[![Markdown links](https://github.com/AKIL3333/patchsmith/actions/workflows/check-links-periodic.yaml/badge.svg)](https://github.com/AKIL3333/patchsmith/actions/workflows/check-links-periodic.yaml)
+# Analyze a repository
+patchsmith analyze --repo /path/to/repo --symbols
 
-</div>
+# Repair a bug
+patchsmith repair \
+  --repo /path/to/repo \
+  --issue-title "Parser crashes on empty objects" \
+  --issue-body "Passing {} raises AttributeError in Parser.parse()" \
+  --output patch.diff
+```
+
+---
+
+## Evaluation (SWE-bench)
+
+```bash
+pip install -e ".[eval]"
+python -m patchsmith.evaluation.swebench --split lite --output results/run_001.jsonl
+```
+
+Ablation matrix - measure each component's contribution:
+
+| System | Retrieval | Planner | Critic | Memory | Resolved |
+|--------|-----------|---------|--------|--------|----------|
+| Baseline | - | - | - | - | ? |
+| +Retrieval | YES | - | - | - | ? |
+| +Planner | YES | YES | - | - | ? |
+| +Critic | YES | YES | YES | - | ? |
+| PatchSmith-Full | YES | YES | YES | YES | ? |
+
+---
+
+## Project Structure
+
+```
+patchsmith/
+├── patchsmith/
+│   ├── agent/          # orchestrator, planner, executor, critic, memory
+│   ├── repository/     # analyzer, git history, dependency graph
+│   ├── retrieval/      # lexical, semantic, symbol, hybrid, reranker
+│   ├── patching/       # generator, candidates, applier, diff
+│   ├── verification/   # tests, lint, typecheck, regression, scorer
+│   ├── memory/         # failures, repairs, store
+│   ├── models/         # anthropic, openai backends
+│   └── evaluation/     # swebench, metrics, trajectories
+├── benchmarks/
+├── configs/
+├── tests/
+└── config.yaml
+```
+
+---
+
+## Origins
+
+PatchSmith began as a fork of [SWE-agent](https://github.com/princeton-nlp/SWE-agent) and uses its execution environment as reference infrastructure. The agent architecture - retrieval, planning, multi-candidate generation, verification, and memory - is a complete reimplementation.
+
+## License
+
+MIT
